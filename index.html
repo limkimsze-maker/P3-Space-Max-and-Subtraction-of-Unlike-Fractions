@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no"/>
-  <title>Uncle Joe and the Subtraction of Fractions that don't look like each other</title>
+  <title>Space Max and Subtraction of Unlike Fractions</title>
 
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -14,7 +14,7 @@
       Build note:
       This is a browser-based 3D game shell.
       Replace QUESTIONS below when you send the real question set.
-      Optional: set ENDING_VIDEO_SRC to a rocket video file later.
+      Rae rover version with GLTF characters, tyre repair, bent-highway ride, and video ending reward.
     */
     window.UJ_FRACTION_SPACE_BUILD = "20260611_subtraction_v1_distinct_planet_chamber";
   </script>
@@ -1289,42 +1289,112 @@
       .compactCoverCard .coverSubtitle{margin-bottom:6px !important;}
     }
 
+    /* ===== Automatic Space Max dialogue box, matched to the series reference ===== */
+    #dialogueBox.dialogueBox{
+      position:fixed !important;
+      inset:0 !important;
+      z-index:58 !important;
+      display:none;
+      background:transparent !important;
+      pointer-events:none !important;
+      transform:none !important;
+      width:auto !important;
+      max-width:none !important;
+      height:auto !important;
+      min-height:0 !important;
+      padding:0 !important;
+      border:0 !important;
+      box-shadow:none !important;
+      backdrop-filter:none !important;
+      white-space:normal !important;
+    }
+    #dialogueBox.dialogueBox.open{display:block !important;}
+    .dialogueCard{
+      position:fixed;
+      left:50%;
+      top:72%;
+      transform:translateX(-50%);
+      width:min(1180px,calc(100vw - 24px));
+      min-height:46px;
+      height:auto;
+      padding:8px 12px;
+      border-radius:20px;
+      border:2px solid rgba(255,227,109,.82);
+      background:linear-gradient(180deg,rgba(9,24,58,.94),rgba(4,9,27,.94));
+      box-shadow:0 8px 22px rgba(0,0,0,.45),0 0 16px rgba(255,227,109,.16),inset 0 0 18px rgba(114,247,255,.06);
+      pointer-events:auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:normal;
+      animation:dialoguePopSmall .16s ease-out;
+      text-align:left;
+    }
+    .speakerRow{margin:0;display:flex;align-items:center;justify-content:flex-start;gap:6px;flex:0 0 auto;align-self:center;}
+    .speakerDot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#ffd7b0,#ff8a53);box-shadow:0 0 14px rgba(255,227,109,.22);font-size:15px;}
+    #dialogueSpeaker.dialogueSpeaker{display:inline-flex;align-items:center;min-height:28px;margin:0;padding:5px 10px;border-radius:999px;font-size:13px;white-space:nowrap;font-weight:1000;box-shadow:0 0 14px rgba(255,227,109,.22);border:0;}
+    #dialogueSpeaker.dialogueSpeaker.rae{background:linear-gradient(180deg,#ffd7b0,#ff8a53);color:#351702;}
+    #dialogueSpeaker.dialogueSpeaker.max{background:linear-gradient(180deg,#bffbff,#72f7ff);color:#06142b;}
+    #dialogueText.dialogueText{flex:1 1 auto;min-width:0;min-height:0;margin:0;color:#f3feff;font-size:clamp(13px,1.55vw,17px);line-height:1.25;font-weight:1000;text-shadow:0 1px 0 rgba(0,0,0,.35);white-space:normal;overflow:visible;text-overflow:clip;padding:0 4px;}
+    .dialogueReward{flex:0 0 auto;margin:0;padding:6px 10px;border-radius:999px;background:rgba(101,255,157,.14);border:1px solid rgba(101,255,157,.55);color:#d8ffe8;font-size:12px;font-weight:1000;white-space:nowrap;}
+    .dialogueActions{margin:0 0 0 4px !important;display:flex !important;justify-content:flex-end !important;gap:6px !important;flex:0 0 auto;align-self:center;}
+    .dialogueActions button{min-height:30px !important;padding:5px 10px !important;font-size:12px !important;border-radius:999px !important;white-space:nowrap;color:#eaffff !important;background:linear-gradient(180deg,rgba(20,48,92,.96),rgba(6,12,35,.96)) !important;border:1px solid rgba(114,247,255,.35) !important;box-shadow:0 5px 0 #081228,0 12px 22px rgba(0,0,0,.32) !important;float:none !important;display:inline-flex !important;align-items:center;justify-content:center;}
+    #dialogueNextBtn{display:none!important;}
+    @media(max-width:760px){.dialogueCard{width:calc(100vw - 10px);max-width:calc(100vw - 10px);padding:7px 8px;gap:7px;border-radius:16px;align-items:flex-start;top:68%;}.speakerRow,.dialogueActions{align-self:flex-start;}#dialogueText.dialogueText{font-size:12px;line-height:1.2;padding-top:4px;}#dialogueSpeaker.dialogueSpeaker{font-size:11px;padding:4px 7px;min-height:26px;}.speakerDot{width:24px;height:24px;font-size:13px;}.dialogueActions button{font-size:11px!important;min-height:28px!important;padding:4px 7px!important;}.dialogueReward{font-size:10px;padding:5px 7px;}}
+    @media(max-width:520px){.dialogueCard{gap:5px;padding:6px;}#dialogueText.dialogueText{font-size:11px;line-height:1.18;}#dialogueSpeaker.dialogueSpeaker{font-size:10px;padding:4px 6px;}}
+
 </style>
 </head>
 <body>
   <div id="gameWrap"></div>
 
   <div id="introVideoOverlay" aria-label="Opening video">
-    <video id="introVideo" playsinline preload="auto" src="https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Subtraction-of-Unlike-Fractions/60552a8b707e0ff9e974fae7384679362424ff60/345991.mp4"></video>
-    <div id="introCaption">Uncle Joe approaches a mysterious planet out in space...</div>
+    <video id="introVideo" playsinline preload="auto" src="https://raw.githubusercontent.com/limkimsze-maker/P3-Space-Max-and-Subtraction-of-Unlike-Fractions/48bc28b4e02949fd5b70fe825210e07c430b1dc3/279931_medium.mp4"></video>
+    <div id="introCaption">Space Max lands near Rae's stranded rover...</div>
     <button id="skipIntroBtn" type="button">Skip Intro</button>
   </div>
 
   <audio id="ambienceAudio" preload="auto" loop src="https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/2d344d7478f4a8e114beb5fa0a083c8d387dba96/placidplace-spaceship-ambience-with-effects-21420.mp3"></audio>
   <audio id="doorAudio" preload="auto" src="https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/2d344d7478f4a8e114beb5fa0a083c8d387dba96/freesound_community-spaceship-door-opening-43604.mp3"></audio>
-  <audio id="endingAudio" preload="auto" src="https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/c178a0923dd2ab4c7c9cb061912ecb2775089b84/freesound_community-spaceship-flight-94906.mp3"></audio>
+  <audio id="endingAudio" preload="auto" src="https://raw.githubusercontent.com/limkimsze-maker/P3-Space-Max-and-Subtraction-of-Unlike-Fractions/f3637d404c5a8a1bbda909a95c1d99614cf09c8c/idoberg-cinematic-spaceship-effect-292641.mp3"></audio>
 
 
   <div id="topHUD">
-    <div id="gameTitle">Uncle Joe and the Subtraction of Fractions that don't look like each other</div>
+    <div id="gameTitle">Space Max and Subtraction of Unlike Fractions</div>
     <div class="hudGroup">
       <div class="hudPill" id="missionPill">Mission: Landed</div>
-      <div class="hudPill" id="reactorPill">Reactor: 0/5</div>
+      <div class="hudPill" id="reactorPill">Tyre: 0/10</div>
       <button class="smallBtn dark" id="soundBtn" type="button">🔊 Sound</button>
     </div>
   </div>
 
   <div id="helpCard">
-    <b>Move Uncle Joe:</b> WASD, keyboard arrows, or the left on-screen pad. Look around with mouse drag or the right-side buttons.
-    Walk to the chamber. The door opens upwards when you approach. Uncle Joe now has stronger collision: rocket, computer, chamber walls, and closed doors are solid.
+    <b>Move Space Max:</b> WASD, keyboard arrows, or the left on-screen pad. Look around with mouse drag or the right-side buttons.
+    Walk to Rae's repair computer. Answer subtraction of unlike fractions questions to inflate the flat tyre.
   </div>
 
   <div id="messageBox"></div>
 
+  <div id="dialogueBox" class="dialogueBox" aria-live="polite">
+    <div class="dialogueCard">
+      <div class="speakerRow">
+        <div id="dialogueDot" class="speakerDot">🦊</div>
+        <div id="dialogueSpeaker" class="dialogueSpeaker rae">Rae</div>
+      </div>
+      <div id="dialogueText" class="dialogueText"></div>
+      <div id="dialogueReward" class="dialogueReward" style="display:none;">Rocket Part: Control Screen</div>
+      <div class="dialogueActions">
+        <button id="dialogueReplayVoiceBtn" type="button">🔊 Repeat</button>
+        <button id="dialogueSkipBtn" type="button">Skip</button>
+        <button id="dialogueNextBtn" class="dialogueNextBtn" type="button">Next ▶</button>
+      </div>
+    </div>
+  </div>
+
   <div id="rewardToast">
-    <span class="bigReward">⚛️</span>
-    <div>Reactor reward collected!</div>
-    <div>Uncle Joe is returning to his rocket.</div>
+    <span class="bigReward">🛞</span>
+    <div>Rae's tyre is inflated!</div>
+    <div>Space Max is joining Rae for the ride home.</div>
   </div>
 
   <div id="prompt">
@@ -1359,25 +1429,26 @@
 
   <div id="coverPage">
     <div class="coverCard compactCoverCard">
-      <div class="coverBadge">🚀 Space Chamber Mission</div>
-      <h1 class="coverTitle">Uncle Joe and the Subtraction of Fractions that don't look like each other</h1>
-      <p class="coverSubtitle">Practise subtracting unlike fractions in a space chamber mission.</p>
+      <div class="coverBadge">🚗 Rover Rescue Mission</div>
+      <h1 class="coverTitle">Space Max and Subtraction of Unlike Fractions</h1>
+      <p class="coverSubtitle">Help Rae inflate a flat rover tyre, then ride home across the planet.</p>
 
       <div class="coverStory compactStory">
-        <p>Uncle Joe lands on a different planet. A space chamber is waiting, and the computer inside needs subtraction of unlike fractions to unlock the reactor.</p>
+        <p>Space Max walks across a strange planet and meets Rae. Rae is anxious because the rover's tyre is flat, and Rae needs to rush home.</p>
+        <p>Max explains that he was captured by an alien and is collecting rocket parts to build a rocket back to Earth. Rae promises to give Max the Control Screen at home if Max can help.</p>
       </div>
 
       <button class="smallBtn dark howToToggle" id="howToPlayBtn" type="button" aria-expanded="false" aria-controls="howToPlayPanel">How to play ▾</button>
       <div class="coverStory compactStory collapsed" id="howToPlayPanel">
         <p><b>Controls:</b> Use WASD / arrow keys on laptop, or the on-screen arrow pads on mobile.</p>
-        <p><b>Mission rule:</b> Learn Mode and Practice Mode help Uncle Joe prepare. Complete 10 Challenge questions correctly in one sitting to collect the reactor reward and fly away.</p>
+        <p><b>Mission rule:</b> Learn Mode and Practice Mode help Space Max prepare. Complete 10 Challenge questions correctly in one sitting to inflate Rae's tyre and unlock the ride home.</p>
       </div>
 
       <div class="missionGrid compactMissionGrid">
         <div class="missionItem"><span class="big">🧑‍🚀</span>Walk</div>
-        <div class="missionItem"><span class="big">🚪</span>Chamber</div>
+        <div class="missionItem"><span class="big">🛞</span>Repair</div>
         <div class="missionItem"><span class="big">🧮</span>Subtract</div>
-        <div class="missionItem"><span class="big">⚛️</span>Escape</div>
+        <div class="missionItem"><span class="big">🚗</span>Ride</div>
       </div>
       <div class="coverActions compactActions">
         <button class="coverBtn" id="startBtn" type="button">Start Mission</button>
@@ -3104,7 +3175,7 @@
       const missionDone = mode === &#x27;challenge&#x27; &amp;&amp; score === questions.length;
       sum.innerHTML = missionDone
         ? `&lt;b&gt;Mission accomplished!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; Subtraction Challenge Mode questions in one sitting.`
-        : `&lt;b&gt;Quiz complete!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; questions. Complete Challenge Mode 10/10 to proceed with Uncle Joe&#x27;s mission.`;
+        : `&lt;b&gt;Quiz complete!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; questions. Complete Challenge Mode 10/10 to proceed with Space Max&#x27;s mission.`;
       qs(&#x27;#check&#x27;).disabled=true;
       qs(&#x27;#back&#x27;).disabled=true;
       qs(&#x27;#next&#x27;).disabled=true;
@@ -4979,7 +5050,7 @@
       const missionDone = mode === &#x27;challenge&#x27; &amp;&amp; score === questions.length;
       sum.innerHTML = missionDone
         ? `&lt;b&gt;Mission accomplished!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; Subtraction Challenge Mode questions in one sitting.`
-        : `&lt;b&gt;Quiz complete!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; questions. Complete Challenge Mode 10/10 to proceed with Uncle Joe&#x27;s mission.`;
+        : `&lt;b&gt;Quiz complete!&lt;/b&gt; You completed &lt;b&gt;${score}/${questions.length}&lt;/b&gt; questions. Complete Challenge Mode 10/10 to proceed with Space Max&#x27;s mission.`;
       qs(&#x27;#check&#x27;).disabled=true;
       qs(&#x27;#back&#x27;).disabled=true;
       qs(&#x27;#next&#x27;).disabled=true;
@@ -5189,7 +5260,7 @@
   <div id="endingPanel">
     <div id="endingCard">
       <h1>Mission Complete!</h1>
-      <p>Uncle Joe completed 10 challenging questions in one sitting, received the reactor reward, returned to his rocket, and flies to the next destination.</p>
+      <p>Space Max inflated Rae's rover tyre, rode home with Rae, and received the rocket part Control Screen.</p>
       <div id="endingStage">
         <video id="endingVideo" playsinline muted controls></video>
         <div id="fakeRocket">
@@ -5218,24 +5289,21 @@
   </div>
 
   <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
   <script>
   (function(){
     "use strict";
 
-    const INTRO_VIDEO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Subtraction-of-Unlike-Fractions/60552a8b707e0ff9e974fae7384679362424ff60/345991.mp4";
+    const ASSET_BASE = "https://raw.githubusercontent.com/limkimsze-maker/P3-Space-Max-and-Subtraction-of-Unlike-Fractions/48bc28b4e02949fd5b70fe825210e07c430b1dc3/";
+    const INTRO_VIDEO_SRC = ASSET_BASE + "279931_medium.mp4";
+    const RAE_MODEL_SRC = ASSET_BASE + "Mech_RaeTheRedPanda.gltf";
+    const RAE_ROVER_SRC = ASSET_BASE + "Rover_1.gltf";
+    const SPARE_ROVER_SRC = ASSET_BASE + "Rover_2.gltf";
+    const DRIVE_ENDING_AUDIO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Space-Max-and-Subtraction-of-Unlike-Fractions/f3637d404c5a8a1bbda909a95c1d99614cf09c8c/idoberg-cinematic-spaceship-effect-292641.mp3";
     const AMBIENCE_AUDIO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/2d344d7478f4a8e114beb5fa0a083c8d387dba96/placidplace-spaceship-ambience-with-effects-21420.mp3";
     const DOOR_AUDIO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/2d344d7478f4a8e114beb5fa0a083c8d387dba96/freesound_community-spaceship-door-opening-43604.mp3";
     const COMPUTER_SCREEN_IMAGE = "data:image/png;base64,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";
-
-    const ENDING_VIDEO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/c178a0923dd2ab4c7c9cb061912ecb2775089b84/74915-554074546_medium.mp4"; // Spaceship flying-away ending video
-    const ENDING_AUDIO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/c178a0923dd2ab4c7c9cb061912ecb2775089b84/freesound_community-spaceship-flight-94906.mp3"; // Spaceship flight sound for ending video
-    /*
-      Later, if you have a real rocket video, put it here:
-      const ENDING_VIDEO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/c178a0923dd2ab4c7c9cb061912ecb2775089b84/74915-554074546_medium.mp4"; // Spaceship flying-away ending video
-    const ENDING_AUDIO_SRC = "https://raw.githubusercontent.com/limkimsze-maker/P3-Uncle-Joe-and-Addition-of-Unlike-Fractions/c178a0923dd2ab4c7c9cb061912ecb2775089b84/freesound_community-spaceship-flight-94906.mp3"; // Spaceship flight sound for ending video
-      If left blank, the built-in animated rocket cutscene plays.
-    */
 
     const QUESTIONS = [
       { a:1, b:2, c:1, d:3 },
@@ -5243,6 +5311,15 @@
       { a:2, b:5, c:1, d:10 },
       { a:3, b:8, c:1, d:4 },
       { a:5, b:6, c:1, d:3 }
+    ];
+    const RIDE_HOME_MS = 10000;
+    const RIDE_PATH = [
+      {x:5.2, z:3.4},
+      {x:9.5, z:2.0},
+      {x:13.8, z:-5.6},
+      {x:21.8, z:-8.6},
+      {x:24.2, z:-17.8},
+      {x:30.0, z:-25.0}
     ];
 
     const $ = (id)=>document.getElementById(id);
@@ -5293,16 +5370,26 @@
     const endingAudio = $("endingAudio");
     const fakeRocket = $("fakeRocket");
     const restartBtn = $("restartBtn");
+    const dialogueBox = $("dialogueBox");
+    const dialogueSpeaker = $("dialogueSpeaker");
+    const dialogueDot = $("dialogueDot");
+    const dialogueText = $("dialogueText");
+    const dialogueReward = $("dialogueReward");
+    const dialogueReplayVoiceBtn = $("dialogueReplayVoiceBtn");
+    const dialogueSkipBtn = $("dialogueSkipBtn");
+    const dialogueNextBtn = $("dialogueNextBtn");
 
     let renderer, scene, camera, clock;
     let player, joeBody, joeLegL, joeLegR, joeArmL, joeArmR, joeHelmet;
     let rocket, rocketDoor, rocketFlame, chamberDoor, chamberDoorLight, computerScreen, computerLight;
+    let raeModel, raeRover, spareRover, homeMarker, gltfLoader;
     let computerScreenTexture, computerScreenFrame;
     let exitDoor, exitDoorLight, reactorCoreGroup, reactorPieces3D = [];
     let starPoints, shootingStar, planetSurface;
     let isReady = false;
     let muted = false;
     let started = false;
+    let raeTalked = false;
     let chamberOpen = false;
     let computerActivated = false;
     let reactorComplete = false;
@@ -5357,6 +5444,19 @@
     let doorOpenAmount = 0;
     let exitDoorOpenAmount = 0;
     let autoWalk = null;
+    let rideHomeActive = false;
+    let rideHomeStart = 0;
+    let rideHomeFinished = false;
+    let rideYaw = -0.62;
+    let raeBoarding = null;
+    let dialogueLines = [];
+    let dialogueIndex = 0;
+    let currentDialogueLine = null;
+    let dialogueTimer = null;
+    let dialogueAutoDelay = 0;
+    let dialogueLineToken = 0;
+    let dialogueBusy = false;
+    let voicesLoadedOnce = false;
     let mouseDown = false;
     let lastMouseX = 0;
     let lastMouseY = 0;
@@ -5374,11 +5474,40 @@
 
     function updateReactorPill(){
       const done = reactorComplete ? 10 : 0;
-      reactorPill.textContent = "Challenge: " + done + "/10";
+      reactorPill.textContent = "Tyre: " + done + "/10";
     }
 
     function delay(ms){
       return new Promise(resolve=>setTimeout(resolve, ms));
+    }
+
+    function ridePathPoint(t){
+      const clamped = Math.max(0, Math.min(1, t));
+      let total = 0;
+      for(let i=0;i<RIDE_PATH.length-1;i++){
+        total += Math.hypot(RIDE_PATH[i+1].x - RIDE_PATH[i].x, RIDE_PATH[i+1].z - RIDE_PATH[i].z);
+      }
+      let remaining = total * clamped;
+      for(let i=0;i<RIDE_PATH.length-1;i++){
+        const a = RIDE_PATH[i];
+        const b = RIDE_PATH[i+1];
+        const len = Math.hypot(b.x - a.x, b.z - a.z);
+        if(remaining <= len || i === RIDE_PATH.length - 2){
+          const local = len ? remaining / len : 0;
+          return {
+            x:a.x + (b.x - a.x) * local,
+            z:a.z + (b.z - a.z) * local
+          };
+        }
+        remaining -= len;
+      }
+      return RIDE_PATH[RIDE_PATH.length - 1];
+    }
+
+    function ridePathYaw(t){
+      const a = ridePathPoint(t);
+      const b = ridePathPoint(t + .02);
+      return Math.atan2(b.x - a.x, b.z - a.z);
     }
 
     function tone(freq=520, duration=.12, type="sine", gainMax=.08){
@@ -5416,16 +5545,164 @@
       setTimeout(()=>tone(760,.15,"sine",.055),190);
     }
 
-    function speak(text){
+    function getVoices(){
+      if(!("speechSynthesis" in window)) return [];
+      const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+      voicesLoadedOnce = voicesLoadedOnce || voices.length > 0;
+      return voices;
+    }
+
+    function chooseVoice(role){
+      const voices = getVoices();
+      if(!voices.length) return null;
+      const english = voices.filter(v => /^en[-_]/i.test(v.lang || ""));
+      const list = english.length ? english : voices;
+      const names = role === "Rae"
+        ? ["Samantha","Zira","Karen","Tessa","Female","Google UK English Female","Microsoft Hazel"]
+        : ["Daniel","David","Alex","Male","Google UK English Male","Microsoft George"];
+      for(const wanted of names){
+        const found = list.find(v => (v.name || "").toLowerCase().includes(wanted.toLowerCase()));
+        if(found) return found;
+      }
+      return role === "Rae" ? list[list.length - 1] : list[0];
+    }
+
+    function speechText(text){
+      return String(text || "")
+        .replace(/[“”]/g,"")
+        .replace(/10\/10/g,"ten out of ten")
+        .replace(/1\//g,"one over ")
+        .replace(/\btyre\b/gi,"tire");
+    }
+
+    function speakLine(role, text){
       if(muted || !("speechSynthesis" in window)) return;
       try{
         speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.rate = .86;
-        u.pitch = .82;
-        u.volume = .9;
+        const u = new SpeechSynthesisUtterance(speechText(text));
+        const isRae = role === "Rae";
+        u.rate = isRae ? .98 : .86;
+        u.pitch = isRae ? 1.32 : .74;
+        u.volume = .92;
+        const v = chooseVoice(role);
+        if(v) u.voice = v;
         speechSynthesis.speak(u);
       }catch(e){}
+    }
+
+    function speak(text, role="Space Max"){
+      speakLine(role, text);
+    }
+
+    const OPENING_DIALOGUE = [
+      {speaker:"Rae", icon:"🦊", text:"Space Max! Please help me. My rover's tyre is flat, and I have to rush home."},
+      {speaker:"Space Max", icon:"🚀", text:"I can help, Rae. I was captured by an alien, and now I am collecting rocket parts to build a rocket back to Earth."},
+      {speaker:"Rae", icon:"🦊", text:"If you inflate my tyre and ride with me safely to my dome home, I will give you a Control Screen for your rocket.", reward:true},
+      {speaker:"Space Max", icon:"🚀", text:"Deal. To subtract unlike fractions, we first make the denominators the same."},
+      {speaker:"Rae", icon:"🦊", text:"Then we subtract the numerators and keep the common denominator. If the answer can be simplified, we simplify it."},
+      {speaker:"Space Max", icon:"🚀", text:"I will use the tyre-inflation computer. Ten out of ten challenge questions should pump enough air into your rover tyre."}
+    ];
+
+    function dialogueDelayFor(text){
+      return Math.max(4400, Math.min(9000, 3000 + String(text || "").length * 54));
+    }
+
+    function stopDialogueVoice(){
+      clearTimeout(dialogueTimer);
+      dialogueTimer = null;
+      dialogueLineToken++;
+      try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
+    }
+
+    function setDialogueSpeakerStyle(speaker){
+      if(!dialogueSpeaker) return;
+      dialogueSpeaker.classList.remove("rae","max");
+      if(speaker === "Rae"){
+        dialogueSpeaker.textContent = "Rae";
+        dialogueSpeaker.classList.add("rae");
+        if(dialogueDot) dialogueDot.textContent = "🦊";
+      }else{
+        dialogueSpeaker.textContent = "Space Max";
+        dialogueSpeaker.classList.add("max");
+        if(dialogueDot) dialogueDot.textContent = "🚀";
+      }
+    }
+
+    function scheduleNextDialogue(){
+      clearTimeout(dialogueTimer);
+      const token = ++dialogueLineToken;
+      dialogueAutoDelay = dialogueDelayFor(currentDialogueLine && currentDialogueLine.text);
+      const advance = () => {
+        if(token !== dialogueLineToken) return;
+        if(!dialogueLines.length) return;
+        if(dialogueIndex >= dialogueLines.length - 1){
+          closeDialogue(false);
+          showMessage("Now activate Rae's tyre-inflation computer in the repair bay.", 4200);
+          setMission("Use repair computer");
+          return;
+        }
+        dialogueIndex++;
+        renderDialogueLine();
+      };
+      dialogueTimer = setTimeout(advance, dialogueAutoDelay + 500);
+    }
+
+    function renderDialogueLine(){
+      if(!dialogueBox || !dialogueLines.length) return;
+      currentDialogueLine = dialogueLines[dialogueIndex];
+      const speaker = currentDialogueLine.speaker || "Space Max";
+      setDialogueSpeakerStyle(speaker);
+      if(dialogueText) dialogueText.textContent = currentDialogueLine.text || "";
+      if(dialogueReward) dialogueReward.style.display = currentDialogueLine.reward ? "inline-block" : "none";
+      dialogueBox.style.display = "block";
+      dialogueBox.classList.add("open");
+      speakLine(speaker, currentDialogueLine.text || "");
+      scheduleNextDialogue();
+    }
+
+    function startDialogue(lines){
+      if(!dialogueBox || !lines || !lines.length) return;
+      stopDialogueVoice();
+      dialogueLines = lines.slice();
+      dialogueIndex = 0;
+      dialogueBusy = true;
+      renderDialogueLine();
+    }
+
+    function closeDialogue(cancelVoice=true){
+      clearTimeout(dialogueTimer);
+      dialogueTimer = null;
+      dialogueLineToken++;
+      if(dialogueBox){
+        dialogueBox.classList.remove("open");
+        dialogueBox.style.display = "none";
+      }
+      if(dialogueReward) dialogueReward.style.display = "none";
+      dialogueLines = [];
+      currentDialogueLine = null;
+      dialogueBusy = false;
+      if(cancelVoice && "speechSynthesis" in window) speechSynthesis.cancel();
+    }
+
+    function nextDialogue(){
+      if(!dialogueLines.length) return;
+      clearTimeout(dialogueTimer);
+      dialogueLineToken++;
+      if(dialogueIndex >= dialogueLines.length - 1){
+        closeDialogue();
+        showMessage("Now activate Rae's tyre-inflation computer in the repair bay.", 4200);
+        setMission("Use repair computer");
+        return;
+      }
+      dialogueIndex++;
+      renderDialogueLine();
+    }
+
+    function playRaeDialogue(){
+      if(dialogueBusy) return;
+      raeTalked = true;
+      setMission("Talk to Rae");
+      startDialogue(OPENING_DIALOGUE);
     }
 
     function gcd(a,b){
@@ -5492,6 +5769,7 @@
       makeRocket();
       makeChamber();
       makePlayer();
+      makeRaeAndRovers();
 
       // Start clearly outside the rocket collision box so player control is not blocked.
       player.position.set(-6.4, 0, 5.4);
@@ -5505,7 +5783,7 @@
       isReady = true;
       loadingScreen.classList.add("hidden");
       setMission("Ready");
-      showMessage("Start the mission. Uncle Joe will step out from the rocket.", 3200);
+      showMessage("Start the mission. Space Max will meet Rae near the stranded rover.", 3200);
       animate();
     }
 
@@ -6026,6 +6304,243 @@
       }
     }
 
+    function makeRaeAndRovers(){
+      const THREE = window.THREE;
+      gltfLoader = THREE.GLTFLoader ? new THREE.GLTFLoader() : null;
+
+      raeRover = createFallbackRover(0xffc247);
+      raeRover.position.set(5.2, 0, 3.4);
+      raeRover.rotation.y = -0.75;
+      scene.add(raeRover);
+
+      spareRover = createFallbackRover(0x72f7ff);
+      spareRover.position.set(7.3, 0, 5.2);
+      spareRover.rotation.y = -0.75;
+      scene.add(spareRover);
+
+      raeModel = createFallbackRae();
+      raeModel.position.set(4.0, 0, 2.2);
+      raeModel.rotation.y = 1.05;
+      scene.add(raeModel);
+
+      homeMarker = createHomeMarker();
+      homeMarker.position.set(30, 0, -25);
+      scene.add(homeMarker);
+      scene.add(createHighway());
+
+      collisionCircles.push(
+        { name:"Rae rover", x:5.2, z:3.4, radius:1.35 },
+        { name:"Rae spare rover", x:7.3, z:5.2, radius:1.3 },
+        { name:"Rae dome home", x:30, z:-25, radius:1.9 }
+      );
+
+      loadGltfInto(RAE_MODEL_SRC, "raeModel", 1.75, 1.05);
+      loadGltfInto(RAE_ROVER_SRC, "raeRover", 1.55, -0.75);
+      loadGltfInto(SPARE_ROVER_SRC, "spareRover", 1.45, -0.75);
+
+      function createFallbackRae(){
+        const group = new THREE.Group();
+        const bodyMat = new THREE.MeshStandardMaterial({color:0xd86f42, roughness:.55, metalness:.08});
+        const creamMat = new THREE.MeshStandardMaterial({color:0xffe2b8, roughness:.65});
+        const darkMat = new THREE.MeshStandardMaterial({color:0x1d2233, roughness:.6});
+
+        const body = new THREE.Group();
+        const bodyCore = new THREE.Mesh(new THREE.CylinderGeometry(.28,.28,.72,18), bodyMat);
+        const bodyTop = new THREE.Mesh(new THREE.SphereGeometry(.28,18,10), bodyMat);
+        const bodyBottom = new THREE.Mesh(new THREE.SphereGeometry(.28,18,10), bodyMat);
+        bodyTop.position.y = .36;
+        bodyBottom.position.y = -.36;
+        body.add(bodyCore, bodyTop, bodyBottom);
+        body.position.y = .9;
+        body.traverse(obj=>{ if(obj.isMesh) obj.castShadow = true; });
+        group.add(body);
+
+        const head = new THREE.Mesh(new THREE.SphereGeometry(.34,22,14), bodyMat);
+        head.position.y = 1.45;
+        head.castShadow = true;
+        group.add(head);
+
+        const face = new THREE.Mesh(new THREE.SphereGeometry(.22,18,10), creamMat);
+        face.position.set(0,1.43,.23);
+        group.add(face);
+
+        [-.19,.19].forEach(x=>{
+          const ear = new THREE.Mesh(new THREE.ConeGeometry(.13,.26,16), darkMat);
+          ear.position.set(x,1.76,0);
+          ear.rotation.z = x < 0 ? .35 : -.35;
+          group.add(ear);
+        });
+
+        const tail = new THREE.Group();
+        const tailCore = new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.65,14), bodyMat);
+        const tailTop = new THREE.Mesh(new THREE.SphereGeometry(.11,14,8), bodyMat);
+        const tailBottom = new THREE.Mesh(new THREE.SphereGeometry(.11,14,8), bodyMat);
+        tailTop.position.y = .325;
+        tailBottom.position.y = -.325;
+        tail.add(tailCore, tailTop, tailBottom);
+        tail.position.set(.43,.75,-.22);
+        tail.rotation.z = .85;
+        tail.traverse(obj=>{ if(obj.isMesh) obj.castShadow = true; });
+        group.add(tail);
+
+        return group;
+      }
+
+      function createFallbackRover(color){
+        const group = new THREE.Group();
+        const bodyMat = new THREE.MeshStandardMaterial({color, roughness:.45, metalness:.18, emissive:color, emissiveIntensity:.05});
+        const darkMat = new THREE.MeshStandardMaterial({color:0x0b1024, roughness:.7, metalness:.25});
+        const glassMat = new THREE.MeshStandardMaterial({color:0xbdfbff, roughness:.12, transparent:true, opacity:.7, emissive:0x72f7ff, emissiveIntensity:.28});
+
+        const base = new THREE.Mesh(new THREE.BoxGeometry(1.9,.52,1.1), bodyMat);
+        base.position.y = .58;
+        base.castShadow = true;
+        group.add(base);
+
+        const cab = new THREE.Mesh(new THREE.BoxGeometry(.82,.5,.78), glassMat);
+        cab.position.set(.12,1.05,.02);
+        cab.castShadow = true;
+        group.add(cab);
+
+        [[-.72,.45], [.72,.45], [-.72,-.45], [.72,-.45]].forEach(([x,z])=>{
+          const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.24,.24,.22,20), darkMat);
+          wheel.rotation.z = Math.PI/2;
+          wheel.position.set(x,.25,z);
+          wheel.castShadow = true;
+          group.add(wheel);
+        });
+
+        return group;
+      }
+
+      function createHomeMarker(){
+        const group = new THREE.Group();
+        const baseMat = new THREE.MeshStandardMaterial({color:0xeaffff, roughness:.5, metalness:.08, emissive:0x123a45, emissiveIntensity:.15});
+        const trimMat = new THREE.MeshStandardMaterial({color:0x65ff9d, roughness:.35, metalness:.15, emissive:0x23ff86, emissiveIntensity:.45});
+        const darkMat = new THREE.MeshStandardMaterial({color:0x071226, roughness:.55, metalness:.2});
+
+        const ringMat = new THREE.MeshBasicMaterial({color:0x65ff9d, transparent:true, opacity:.4, side:THREE.DoubleSide});
+        const ring = new THREE.Mesh(new THREE.RingGeometry(1.25,1.35,56), ringMat);
+        ring.rotation.x = -Math.PI/2;
+        ring.position.y = .04;
+        group.add(ring);
+
+        const dome = new THREE.Mesh(new THREE.SphereGeometry(1.35,32,16,0,Math.PI*2,0,Math.PI/2), baseMat);
+        dome.position.y = .08;
+        dome.castShadow = true;
+        dome.receiveShadow = true;
+        group.add(dome);
+
+        const glowDome = new THREE.Mesh(
+          new THREE.SphereGeometry(1.42,32,12,0,Math.PI*2,0,Math.PI/2),
+          new THREE.MeshBasicMaterial({color:0x65ff9d, transparent:true, opacity:.16, side:THREE.DoubleSide})
+        );
+        glowDome.position.y = .1;
+        group.add(glowDome);
+
+        const door = new THREE.Mesh(new THREE.BoxGeometry(.46,.78,.08), darkMat);
+        door.position.set(0,.42,1.2);
+        group.add(door);
+
+        [-.55,.55].forEach(x=>{
+          const win = new THREE.Mesh(new THREE.SphereGeometry(.16,16,8), trimMat);
+          win.scale.set(1,.72,.18);
+          win.position.set(x,.76,1.08);
+          group.add(win);
+        });
+
+        return group;
+      }
+
+      function createHighway(){
+        const group = new THREE.Group();
+        const roadMat = new THREE.MeshStandardMaterial({color:0x142d5a, roughness:.72, metalness:.08, emissive:0x0b2045, emissiveIntensity:.18});
+        const lineMat = new THREE.MeshBasicMaterial({color:0xffe36d, transparent:true, opacity:.9});
+        const edgeMat = new THREE.MeshBasicMaterial({color:0x72f7ff, transparent:true, opacity:.62});
+        const points = RIDE_PATH;
+
+        for(let i=0;i<points.length-1;i++){
+          const a = points[i];
+          const b = points[i+1];
+          const dx = b.x - a.x;
+          const dz = b.z - a.z;
+          const len = Math.hypot(dx,dz);
+          const midX = (a.x + b.x) / 2;
+          const midZ = (a.z + b.z) / 2;
+          const angle = Math.atan2(dx,dz);
+
+          const road = new THREE.Mesh(new THREE.BoxGeometry(6.2,.05,len + .7), roadMat);
+          road.position.set(midX,.055,midZ);
+          road.rotation.y = angle;
+          road.receiveShadow = true;
+          group.add(road);
+
+          const centre = new THREE.Mesh(new THREE.BoxGeometry(.18,.07,len*.58), lineMat);
+          centre.position.set(midX,.095,midZ);
+          centre.rotation.y = angle;
+          group.add(centre);
+
+          [-3.25,3.25].forEach(offset=>{
+            const edge = new THREE.Mesh(new THREE.BoxGeometry(.12,.08,len + .7), edgeMat);
+            edge.position.set(midX + Math.cos(angle)*offset,.11,midZ - Math.sin(angle)*offset);
+            edge.rotation.y = angle;
+            group.add(edge);
+          });
+        }
+
+        for(let i=1;i<points.length-1;i++){
+          const bend = new THREE.Mesh(
+            new THREE.CylinderGeometry(3.1,3.1,.055,36),
+            new THREE.MeshStandardMaterial({color:0x142d5a, roughness:.72, metalness:.08, emissive:0x0b2045, emissiveIntensity:.18})
+          );
+          bend.position.set(points[i].x,.052,points[i].z);
+          bend.receiveShadow = true;
+          group.add(bend);
+        }
+
+        return group;
+      }
+    }
+
+    function loadGltfInto(src, targetName, targetHeight, rotationY){
+      if(!gltfLoader) return;
+      gltfLoader.load(src, gltf=>{
+        const THREE = window.THREE;
+        const current = targetName === "raeModel" ? raeModel : targetName === "raeRover" ? raeRover : spareRover;
+        const model = gltf.scene;
+        normalizeModel(model, targetHeight);
+        model.position.copy(current.position);
+        model.rotation.y = rotationY;
+        model.traverse(obj=>{
+          if(obj.isMesh){
+            obj.castShadow = true;
+            obj.receiveShadow = true;
+          }
+        });
+        scene.remove(current);
+        scene.add(model);
+        if(targetName === "raeModel") raeModel = model;
+        if(targetName === "raeRover") raeRover = model;
+        if(targetName === "spareRover") spareRover = model;
+      }, undefined, ()=>{});
+    }
+
+    function normalizeModel(model, targetHeight){
+      const THREE = window.THREE;
+      const box = new THREE.Box3().setFromObject(model);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+      const longest = Math.max(size.x, size.y, size.z, .001);
+      model.scale.setScalar(targetHeight / longest);
+
+      const scaledBox = new THREE.Box3().setFromObject(model);
+      const center = new THREE.Vector3();
+      scaledBox.getCenter(center);
+      model.position.x -= center.x;
+      model.position.z -= center.z;
+      model.position.y -= scaledBox.min.y;
+    }
+
     function createTextSprite(text, x, y, z, scale, parent){
       const THREE = window.THREE;
       const canvas = document.createElement("canvas");
@@ -6060,6 +6575,10 @@
       document.addEventListener("keydown", e=>{
         if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," ","Spacebar"].includes(e.key)) e.preventDefault();
         if(e.repeat) return;
+        if(dialogueBox && dialogueBox.classList.contains("open")){
+          if(e.key.toLowerCase() === "e") nextDialogue();
+          return;
+        }
         if(e.key === "w" || e.key === "ArrowUp") keys.forward = true;
         if(e.key === "s" || e.key === "ArrowDown") keys.back = true;
         if(e.key === "a" || e.key === "ArrowLeft") keys.left = true;
@@ -6093,7 +6612,7 @@
       window.addEventListener("pointerup", ()=>mouseDown = false);
 
       window.addEventListener("pointermove", e=>{
-        if(!mouseDown || modalShade.classList.contains("open") || endingPanel.classList.contains("open")) return;
+        if(!mouseDown || modalShade.classList.contains("open") || endingPanel.classList.contains("open") || (dialogueBox && dialogueBox.classList.contains("open"))) return;
         const dx = e.clientX - lastMouseX;
         const dy = e.clientY - lastMouseY;
         lastMouseX = e.clientX;
@@ -6108,9 +6627,14 @@
           e.preventDefault();
           try{ btn.setPointerCapture(e.pointerId); }catch(err){}
           if(k === "interact"){
+            if(dialogueBox && dialogueBox.classList.contains("open")){
+              nextDialogue();
+              return;
+            }
             interact();
             return;
           }
+          if(dialogueBox && dialogueBox.classList.contains("open")) return;
           keys[k] = true;
           btn.classList.add("active");
         };
@@ -6143,6 +6667,7 @@
       skipBtn.addEventListener("click", ()=>{
         coverPage.style.display = "none";
         started = true;
+        raeTalked = true;
         player.position.set(0,0,-12.4);
         cameraYaw = 0;
         chamberOpen = true;
@@ -6156,6 +6681,23 @@
 
       prompt.addEventListener("click", interact);
       closeQuizBtn.addEventListener("click", closeQuiz);
+      if(dialogueSkipBtn) dialogueSkipBtn.addEventListener("click", ()=>{
+        closeDialogue();
+        showMessage("Now activate Rae's tyre-inflation computer in the repair bay.", 3600);
+        setMission("Use repair computer");
+      });
+      if(dialogueNextBtn) dialogueNextBtn.addEventListener("click", nextDialogue);
+      if(dialogueReplayVoiceBtn) dialogueReplayVoiceBtn.addEventListener("click", ()=>{
+        if(currentDialogueLine){
+          stopDialogueVoice();
+          speakLine(currentDialogueLine.speaker || "Space Max", currentDialogueLine.text || "");
+          scheduleNextDialogue();
+        }
+      });
+      if("speechSynthesis" in window){
+        speechSynthesis.onvoiceschanged = ()=>getVoices();
+        getVoices();
+      }
 
       if(outerCheatSolveBtn){
         outerCheatSolveBtn.addEventListener("click", ()=>{
@@ -6181,7 +6723,11 @@
           introVideo.volume = muted ? 0 : 1;
         }
         if(doorAudio) doorAudio.volume = muted ? 0 : .9;
-        if(endingAudio) endingAudio.volume = muted ? 0 : .9;
+        if(endingAudio){
+          endingAudio.volume = muted ? 0 : .9;
+          if(muted) endingAudio.pause();
+          else if(rideHomeActive || endingPanel.classList.contains("open")) startDriveEndingSound();
+        }
         if(muted && "speechSynthesis" in window) speechSynthesis.cancel();
       });
       restartBtn.addEventListener("click", ()=>location.reload());
@@ -6235,6 +6781,19 @@
       }catch(e){}
     }
 
+    function startDriveEndingSound(){
+      if(!endingAudio || muted) return;
+      try{
+        if(!endingAudio.src || !endingAudio.src.includes("idoberg-cinematic-spaceship-effect-292641")){
+          endingAudio.src = DRIVE_ENDING_AUDIO_SRC;
+        }
+        endingAudio.loop = true;
+        endingAudio.volume = .9;
+        const p = endingAudio.play();
+        if(p && typeof p.catch === "function") p.catch(()=>{});
+      }catch(e){}
+    }
+
     async function playIntroVideoThenBegin(){
       if(!introVideoOverlay || !introVideo){
         beginMissionAfterIntro();
@@ -6275,33 +6834,34 @@
 
     async function startMission(){
       if(!isReady) return;
-      playIntroVideoThenBegin();
+      startAmbience();
+      beginMissionAfterIntro();
     }
 
     async function beginMissionAfterIntro(){
       if(!isReady) return;
       coverPage.style.display = "none";
       started = true;
-      setMission("Rocket exit");
-      showMessage("Uncle Joe walks out from his rocket.", 2600);
-      speak("Uncle Joe has landed on a strange planet. A space chamber is waiting.");
+      setMission("Find Rae");
+      showMessage("Space Max walks across the planet and sees Rae beside a rover with a flat tyre.", 3200);
+      speak("Space Max meets Rae. Rae is anxious because the rover tyre is flat.");
       whoosh();
 
       rocketDoor.rotation.x = -1.15;
       rocketDoor.position.y = .88;
 
-      // Give control back to the player immediately after the opening video.
-      // Earlier version auto-walked Uncle Joe and could feel like the controls were not working.
+      // Give control to the player immediately when the mission starts.
+      // Earlier version auto-walked Space Max and could feel like the controls were not working.
       autoWalk = null;
       player.position.set(-6.4, 0, 5.4);
       player.rotation.y = -0.7;
 
-      showMessage("You are in control now. Use WASD, arrow keys, or the mobile buttons to guide Uncle Joe to the glowing chamber door.", 5200);
-      setMission("Find chamber");
+      showMessage("Guide Space Max to Rae. Press E near Rae to hear the conversation.", 5600);
+      setMission("Find Rae");
 
       setTimeout(()=>{
         if(started && !chamberOpen && !modalShade.classList.contains("open")){
-          showMessage("Control tip: use WASD / arrow keys, or tap and hold the on-screen arrows. The E button interacts when near the computer screen.", 5200);
+          showMessage("Control tip: talk to Rae first. After the dialogue, walk to the repair computer to inflate the tyre.", 5200);
         }
       }, 4500);
     }
@@ -6324,6 +6884,8 @@
     function update(dt, elapsed){
       updateSpace(dt, elapsed);
       updateDoors(dt);
+      updateRaeBoarding(elapsed);
+      updateRideHome(dt, elapsed);
       updatePlayer(dt, elapsed);
       updateCamera(dt);
       updateInteractions();
@@ -6369,6 +6931,9 @@
 
     function updatePlayer(dt, elapsed){
       if(!player) return;
+      if(rideHomeActive){
+        return;
+      }
 
       let moving = false;
 
@@ -6393,7 +6958,7 @@
         }else{
           autoWalk = null;
         }
-      }else if(started && !modalShade.classList.contains("open") && !endingPanel.classList.contains("open")){
+      }else if(started && !modalShade.classList.contains("open") && !endingPanel.classList.contains("open") && !(dialogueBox && dialogueBox.classList.contains("open"))){
         if(keys.turnLeft) cameraYaw += dt * 1.8;
         if(keys.turnRight) cameraYaw -= dt * 1.8;
         if(keys.lookUp) cameraPitch = Math.min(.42, cameraPitch + dt*.75);
@@ -6438,6 +7003,13 @@
     function updateCamera(dt){
       if(!player || !camera) return;
       const THREE = window.THREE;
+      if(rideHomeActive && spareRover){
+        const target = new THREE.Vector3(spareRover.position.x, spareRover.position.y + 1.1, spareRover.position.z);
+        const camTarget = new THREE.Vector3(spareRover.position.x - 4.5, spareRover.position.y + 3.2, spareRover.position.z + 5.2);
+        camera.position.lerp(camTarget, Math.min(1, dt*2.8 || 1));
+        camera.lookAt(target);
+        return;
+      }
       const radius = 5.8;
       const height = 2.8;
       const x = player.position.x + Math.sin(cameraYaw) * radius;
@@ -6452,25 +7024,29 @@
       if(!started || !player) return;
 
       const distToDoor = distance2D(player.position.x, player.position.z, 0, -9.9);
-      if(distToDoor < 5.4 && !chamberOpen){
+      if(raeTalked && distToDoor < 5.4 && !chamberOpen){
         chamberOpen = true;
         playDoorSound();
         whoosh();
-        showMessage("The futuristic chamber door slides upwards.", 2800);
-        setMission("Enter chamber");
+        showMessage("The repair bay door slides upwards. Rae points Max to the tyre-inflation computer.", 3200);
+        setMission("Enter repair bay");
       }
 
       currentInteract = null;
 
+      const distRae = distance2D(player.position.x, player.position.z, 4.0, 2.2);
       const distComputer = distance2D(player.position.x, player.position.z, 0, -15.1);
       const distExit = distance2D(player.position.x, player.position.z, 0, -17.7);
 
-      if(chamberOpen && !reactorComplete && distComputer < 2.7){
+      if(!reactorComplete && !raeTalked && distRae < 2.6){
+        currentInteract = "rae";
+        promptText.textContent = "Talk to Rae";
+      }else if(chamberOpen && !reactorComplete && distComputer < 2.7){
         currentInteract = "computer";
-        promptText.textContent = "Activate the computer";
+        promptText.textContent = "Use tyre-inflation computer";
       }else if(reactorComplete && exitOpened && distExit < 3.1){
         currentInteract = "exit";
-        promptText.textContent = "Leave the chamber";
+        promptText.textContent = "Join Rae for the ride home";
       }
 
       prompt.style.display = currentInteract ? "flex" : "none";
@@ -6478,7 +7054,9 @@
 
     function interact(){
       if(!currentInteract) return;
-      if(currentInteract === "computer"){
+      if(currentInteract === "rae"){
+        playRaeDialogue();
+      }else if(currentInteract === "computer"){
         openQuiz();
       }else if(currentInteract === "exit"){
         startEnding();
@@ -6553,14 +7131,14 @@
     function openQuiz(){
       computerActivated = true;
       modalShade.classList.add("open");
-      setMission("Challenge gate");
-      speak("The subtraction computer has expanded. Use Learn and Practice if needed. Uncle Joe proceeds after Challenge Mode ten out of ten.");
-      showMessage("Complete Subtraction Challenge Mode 10/10 to proceed with Uncle Joe's mission.", 4200);
+      setMission("Inflate tyre");
+      speak("The tyre inflation computer is ready. Use Learn and Practice if needed. Space Max proceeds after Challenge Mode ten out of ten.");
+      showMessage("Complete Subtraction Challenge Mode 10/10 to inflate Rae's tyre.", 4200);
     }
 
     function closeQuiz(){
       modalShade.classList.remove("open");
-      setMission(reactorComplete ? "Return to rocket" : "Computer");
+      setMission(reactorComplete ? "Ride home" : "Computer");
     }
 
     function setAnswerMode(mode){
@@ -6658,7 +7236,7 @@
         perfectRun++;
         quizIndex++;
         setReactorPiece3D(quizIndex-1, true);
-        showFeedback("Correct! A fraction of the nuclear reactor has been collected.", "ok");
+        showFeedback("Correct! More air goes into Rae's rover tyre.", "ok");
         updateReactorPill();
         renderReactorStrip();
 
@@ -6718,15 +7296,15 @@
       modalShade.classList.remove("open");
       setMission("Mission accomplished");
       if(rewardToast) rewardToast.classList.add("show");
-      showMessage("Mission accomplished! Challenge Mode 10/10 completed. Uncle Joe receives the reactor reward.", 5200);
-      speak("Mission accomplished. Challenge Mode ten out of ten completed. Reactor reward collected.");
+      showMessage("Mission accomplished! Challenge Mode 10/10 completed. Rae's rover tyre is inflated.", 5200);
+      speak("Mission accomplished. Challenge Mode ten out of ten completed. Rae's rover tyre is inflated.");
       whoosh();
       confetti(120);
 
       await delay(1800);
       exitOpened = true;
       playDoorSound();
-      showMessage("The exit opens. Guide sequence starting: Uncle Joe will walk back to his rocket.", 4600);
+      showMessage("The exit opens. Rae is ready to bring Space Max to the dome home.", 4600);
 
       await delay(1200);
       startEnding();
@@ -6736,69 +7314,216 @@
       if(endingStarted) return;
       endingStarted = true;
 
-      setMission("Return to rocket");
-      showMessage("Uncle Joe walks out of the chamber and returns to his rocket.", 3600);
-      speak("Uncle Joe is returning to his rocket.");
+      setMission("Go to Rae's home");
+      showMessage("Rae walks into the rover while Space Max moves to the spare rover.", 3600);
+      speakLine("Rae", "Come on, Space Max. I will drive first. Follow me to my dome home.");
       whoosh();
 
-      // Let the player see Uncle Joe leave the chamber and walk back to the rocket.
       chamberOpen = true;
       exitOpened = true;
       autoWalk = {
         points:[
           {x:0.0,z:-12.2,t:1.0},
           {x:-2.4,z:-7.2,t:1.2},
-          {x:-4.4,z:-2.8,t:1.2},
-          {x:-6.2,z:1.4,t:1.2},
-          {x:-7.4,z:4.9,t:1.2},
-          {x:-7.8,z:6.2,t:0.8}
+          {x:.5,z:-4.8,t:1.2},
+          {x:3.3,z:.2,t:1.2},
+          {x:6.7,z:4.6,t:1.0}
         ],
         index:0,
         progress:0
       };
 
-      await delay(6200);
+      await delay(5200);
+      startRaeBoarding();
+      await delay(2400);
+      beginRideHome();
+    }
 
-      rocketDoor.rotation.x = -1.15;
-      rocketDoor.position.y = .88;
-      if(rocketFlame) rocketFlame.visible = true;
+    function startRaeBoarding(){
+      if(!raeModel || !raeRover) return;
+      raeModel.visible = true;
+      raeBoarding = {
+        start:performance.now(),
+        duration:2100,
+        from:{x:raeModel.position.x, y:raeModel.position.y, z:raeModel.position.z},
+        to:{x:raeRover.position.x, y:.28, z:raeRover.position.z + .08}
+      };
+    }
 
-      setMission("Rocket video ending");
-      showMessage("Uncle Joe boards the rocket. Uncle Joe walks back to the rocket. Then the spaceship flies away to the next destination.", 3200);
-      speak("Uncle Joe boards the rocket and flies to the next destination.");
-      whoosh();
+    function updateRaeBoarding(){
+      if(!raeBoarding || !raeModel) return;
+      const now = performance.now();
+      const t = Math.min((now - raeBoarding.start) / raeBoarding.duration, 1);
+      const ease = t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+      raeModel.position.set(
+        raeBoarding.from.x + (raeBoarding.to.x - raeBoarding.from.x) * ease,
+        raeBoarding.from.y + (raeBoarding.to.y - raeBoarding.from.y) * ease,
+        raeBoarding.from.z + (raeBoarding.to.z - raeBoarding.from.z) * ease
+      );
+      const dx = raeBoarding.to.x - raeModel.position.x;
+      const dz = raeBoarding.to.z - raeModel.position.z;
+      if(Math.hypot(dx,dz) > .03) raeModel.rotation.y = Math.atan2(dx,dz);
+      if(t >= 1){
+        raeModel.visible = false;
+        raeBoarding = null;
+      }
+    }
 
-      await delay(1200);
+    function beginRideHome(){
+      rideHomeActive = true;
+      rideHomeFinished = false;
+      rideHomeStart = performance.now();
+      rideYaw = ridePathYaw(.03);
+      autoWalk = null;
+      startDriveEndingSound();
 
-      endingPanel.classList.add("open");
+      if(player){
+        player.visible = false;
+        player.position.set(7.3, 0, 5.2);
+      }
+      if(spareRover){
+        spareRover.position.set(7.3, 0, 5.2);
+        spareRover.rotation.y = rideYaw;
+        spareRover.visible = true;
+      }
+      if(raeRover){
+        const start = ridePathPoint(0);
+        raeRover.position.set(start.x, 0, start.z);
+        raeRover.rotation.y = rideYaw;
+        raeRover.visible = true;
+      }
+      if(raeModel){
+        raeModel.visible = false;
+      }
 
-      if(ENDING_VIDEO_SRC){
-        endingVideo.src = ENDING_VIDEO_SRC;
-        endingVideo.style.display = "block";
-        fakeRocket.style.display = "none";
-        endingVideo.muted = muted;
-        endingVideo.volume = muted ? 0 : 1;
+      setMission("Drive to dome home");
+      showMessage("Drive Max's spare rover behind Rae. Use WASD, arrow keys, or the mobile arrows. Reach the dome in about 10 seconds.", 6500);
+      speakLine("Space Max", "I will follow Rae on the highway to the dome home.");
+    }
 
-        if(endingAudio){
-          try{
-            endingAudio.src = ENDING_AUDIO_SRC;
-            endingAudio.currentTime = 0;
-            endingAudio.volume = muted ? 0 : .9;
-            const ap = endingAudio.play();
-            if(ap && typeof ap.catch === "function") ap.catch(()=>{});
-          }catch(e){}
-        }
+    function updateRideHome(dt, elapsed){
+      if(!rideHomeActive || !spareRover || !homeMarker) return;
+      const THREE = window.THREE;
+      const target = homeMarker.position;
+      const toHome = new THREE.Vector3(target.x - spareRover.position.x, 0, target.z - spareRover.position.z);
+      const distHome = Math.max(.001, toHome.length());
 
-        const vp = endingVideo.play();
-        if(vp && typeof vp.catch === "function") vp.catch(()=>{});
-      }else{
-        endingVideo.style.display = "none";
-        fakeRocket.style.display = "none";
-        const stage = document.getElementById("endingStage");
-        if(stage){
-          stage.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:22px;text-align:center;color:#eaffff;font-weight:1000;font-size:clamp(18px,4vw,34px);">Spaceship flying-away video will play here.</div>';
+      const steer = (keys.left ? 1 : 0) - (keys.right ? 1 : 0);
+      const throttle = (keys.forward ? 1 : 0) - (keys.back ? 1 : 0);
+      rideYaw += steer * dt * 1.8;
+
+      const forward = new THREE.Vector3(Math.sin(rideYaw), 0, Math.cos(rideYaw));
+      const previousPos = spareRover.position.clone();
+      spareRover.position.addScaledVector(forward, throttle * 4.25 * dt);
+      resolveVehicleCollisions(spareRover.position, previousPos, .95);
+      spareRover.position.x = Math.max(-34, Math.min(36, spareRover.position.x));
+      spareRover.position.z = Math.max(-34, Math.min(14, spareRover.position.z));
+      spareRover.rotation.y = rideYaw;
+      spareRover.position.y = .08 + Math.sin(elapsed*5) * .025;
+
+      if(player){
+        player.position.copy(spareRover.position);
+        player.rotation.y = rideYaw;
+      }
+
+      if(raeRover){
+        const leadProgress = Math.min((performance.now() - rideHomeStart) / RIDE_HOME_MS, 1);
+        const p = ridePathPoint(leadProgress);
+        raeRover.position.lerp(new THREE.Vector3(p.x, 0, p.z), Math.min(1, dt*5.5));
+        raeRover.rotation.y = ridePathYaw(leadProgress);
+        raeRover.position.y = .08 + Math.sin(elapsed*5 + .8) * .025;
+      }
+
+      if(raeRover){
+        const dx = spareRover.position.x - raeRover.position.x;
+        const dz = spareRover.position.z - raeRover.position.z;
+        const dist = Math.hypot(dx,dz);
+        const minDist = 2.1;
+        if(dist < minDist){
+          const safeDist = Math.max(dist,.001);
+          spareRover.position.x = raeRover.position.x + (dx / safeDist) * minDist;
+          spareRover.position.z = raeRover.position.z + (dz / safeDist) * minDist;
+          showMessage("Careful. Rae's rover is solid, so follow behind it.", 1600);
         }
       }
+
+      if(homeMarker){
+        const pulse = 1 + Math.sin(elapsed*3.2) * .05;
+        homeMarker.scale.setScalar(pulse);
+      }
+
+      const elapsedRide = performance.now() - rideHomeStart;
+      if(distHome < 3.2 || (elapsedRide >= RIDE_HOME_MS && distHome < 5.2)){
+        finishRideHome();
+      }
+    }
+
+    function resolveVehicleCollisions(pos, previousPos, radius){
+      for(const obstacle of collisionCircles){
+        if(obstacle.name === "Rae rover" || obstacle.name === "Rae spare rover") continue;
+        const dx = pos.x - obstacle.x;
+        const dz = pos.z - obstacle.z;
+        let dist = Math.hypot(dx,dz);
+        const minDist = obstacle.radius + radius;
+        if(dist < minDist){
+          if(dist < .0001) dist = .0001;
+          pos.x = obstacle.x + (dx / dist) * minDist;
+          pos.z = obstacle.z + (dz / dist) * minDist;
+        }
+      }
+
+      for(const rect of collisionRects){
+        if(rect.active && !rect.active()) continue;
+        const minX = rect.minX - radius;
+        const maxX = rect.maxX + radius;
+        const minZ = rect.minZ - radius;
+        const maxZ = rect.maxZ + radius;
+        const inside = pos.x > minX && pos.x < maxX && pos.z > minZ && pos.z < maxZ;
+        if(!inside) continue;
+        if(previousPos){
+          if(previousPos.z <= minZ){ pos.z = minZ; continue; }
+          if(previousPos.z >= maxZ){ pos.z = maxZ; continue; }
+          if(previousPos.x <= minX){ pos.x = minX; continue; }
+          if(previousPos.x >= maxX){ pos.x = maxX; continue; }
+        }
+        const leftPen = Math.abs(pos.x - minX);
+        const rightPen = Math.abs(maxX - pos.x);
+        const frontPen = Math.abs(pos.z - minZ);
+        const backPen = Math.abs(maxZ - pos.z);
+        const smallest = Math.min(leftPen, rightPen, frontPen, backPen);
+        if(smallest === leftPen) pos.x = minX;
+        else if(smallest === rightPen) pos.x = maxX;
+        else if(smallest === frontPen) pos.z = minZ;
+        else pos.z = maxZ;
+      }
+    }
+
+    function finishRideHome(){
+      if(rideHomeFinished) return;
+      rideHomeFinished = true;
+      rideHomeActive = false;
+      setMission("Control Screen earned");
+      showMessage("Rae gives Space Max the rocket part: Control Screen.", 5200);
+      speakLine("Rae", "Thank you, Space Max. Here is the Control Screen for your rocket.");
+      confetti(140);
+      whoosh();
+      startDriveEndingSound();
+
+      const stage = document.getElementById("endingStage");
+      if(stage){
+        stage.style.display = "";
+      }
+      endingVideo.src = INTRO_VIDEO_SRC;
+      endingVideo.style.display = "block";
+      endingVideo.muted = true;
+      endingVideo.controls = true;
+      fakeRocket.style.display = "none";
+
+      setTimeout(()=>{
+        endingPanel.classList.add("open");
+        const vp = endingVideo.play();
+        if(vp && typeof vp.catch === "function") vp.catch(()=>{});
+      }, 1200);
     }
 
     function confetti(count=60){
