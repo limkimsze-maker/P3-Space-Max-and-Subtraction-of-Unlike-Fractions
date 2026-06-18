@@ -898,6 +898,14 @@
       text-shadow:0 0 20px rgba(114,247,255,.65);
     }
 
+    .endingActions{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
     #endingStage{
       position:relative;
       width:min(680px,100%);
@@ -5287,7 +5295,10 @@
           <div class="rFlame"></div>
         </div>
       </div>
-      <button class="coverBtn" id="restartBtn" type="button">Play Again</button>
+      <div class="endingActions">
+        <button class="coverBtn" id="returnHubBtn" type="button">Return to Rocket Hub</button>
+        <button class="pillBtn dark" id="restartBtn" type="button">Play Again</button>
+      </div>
     </div>
   </div>
 
@@ -5384,11 +5395,20 @@
     const endingVideo = $("endingVideo");
     const endingAudio = $("endingAudio");
     const fakeRocket = $("fakeRocket");
+    const returnHubBtn = $("returnHubBtn");
     const restartBtn = $("restartBtn");
     const dialogueBox = $("dialogueBox");
     const dialogueSpeaker = $("dialogueSpeaker");
     const dialogueDot = $("dialogueDot");
     const dialogueText = $("dialogueText");
+
+    const SPACE_MAX_HUB_URL = "https://limkimsze-maker.github.io/P2-P3-Space-Max-and-the-Lost-Fraction-Rocket-Parts/";
+    const SPACE_MAX_PART_KEY = "space_max_part_p3_subtraction";
+
+    function saveSpaceMaxProgress(){
+      localStorage.setItem(SPACE_MAX_PART_KEY, "collected");
+      localStorage.setItem(SPACE_MAX_PART_KEY + "_completedAt", new Date().toISOString());
+    }
     const dialogueReward = $("dialogueReward");
     const dialogueReplayVoiceBtn = $("dialogueReplayVoiceBtn");
     const dialogueSkipBtn = $("dialogueSkipBtn");
@@ -6761,6 +6781,7 @@
         }
         if(muted && "speechSynthesis" in window) speechSynthesis.cancel();
       });
+      returnHubBtn.addEventListener("click", ()=>{ location.href = SPACE_MAX_HUB_URL; });
       restartBtn.addEventListener("click", ()=>location.reload());
 
       window.addEventListener("message", (event)=>{
@@ -7534,6 +7555,7 @@
       rideHomeFinished = true;
       rideHomeActive = false;
       setMission("Control Screen earned");
+      saveSpaceMaxProgress();
       showMessage("Rae gives Space Max the rocket part: Control Screen.", 5200);
       speakLine("Rae", "Thank you, Space Max. Here is the Control Screen for your rocket.");
       confetti(140);
